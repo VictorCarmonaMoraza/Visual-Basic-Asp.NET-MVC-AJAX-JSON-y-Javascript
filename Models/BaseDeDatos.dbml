@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BDVeterinaria" Class="BaseDeDatosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=VICTORPC;Initial Catalog=BDVeterinaria;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="BDVeterinariaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Cita" Member="Cita">
+    <Type Name="Cita">
+      <Column Name="IIDCITA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IIDUSUARIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDTIPOMASCOTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDMASCOTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VDESCRIPCION" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="VMEDIDASTOMADAS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="DFECHAENFERMO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DFECHAINICIO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PRECIOATENCION" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TOTALPAGAR" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="IIDSEDE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDDOCTORASIGNACITAUSUARIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDESTADOCITA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DFECHACITA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Cita_CitaMedicamento" Member="CitaMedicamento" ThisKey="IIDCITA" OtherKey="IIDCITA" Type="CitaMedicamento" />
+      <Association Name="EstadoCita_Cita" Member="EstadoCita" ThisKey="IIDESTADOCITA" OtherKey="IIDESTADO" Type="EstadoCita" IsForeignKey="true" />
+      <Association Name="Mascota_Cita" Member="Mascota" ThisKey="IIDMASCOTA" OtherKey="IIDMASCOTA" Type="Mascota" IsForeignKey="true" />
+      <Association Name="Sede_Cita" Member="Sede" ThisKey="IIDSEDE" OtherKey="IIDSEDE" Type="Sede" IsForeignKey="true" />
+      <Association Name="TipoMascota_Cita" Member="TipoMascota" ThisKey="IIDTIPOMASCOTA" OtherKey="IIDTIPOMASCOTA" Type="TipoMascota" IsForeignKey="true" />
+      <Association Name="Usuario_Cita" Member="Usuario" ThisKey="IIDDOCTORASIGNACITAUSUARIO" OtherKey="IIDUSUARIO" Type="Usuario" IsForeignKey="true" />
+      <Association Name="Usuario_Cita1" Member="Usuario1" ThisKey="IIDUSUARIO" OtherKey="IIDUSUARIO" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CitaMedicamento" Member="CitaMedicamento">
+    <Type Name="CitaMedicamento">
+      <Column Name="IIDCITAMEDICAMENTO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IIDCITA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDMEDICAMENTO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRECIO" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="CANTIDAD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Cita_CitaMedicamento" Member="Cita" ThisKey="IIDCITA" OtherKey="IIDCITA" Type="Cita" IsForeignKey="true" />
+      <Association Name="Medicamento_CitaMedicamento" Member="Medicamento" ThisKey="IIDMEDICAMENTO" OtherKey="IIDMEDICAMENTO" Type="Medicamento" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstadoCita" Member="EstadoCita">
+    <Type Name="EstadoCita">
+      <Column Name="IIDESTADO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VNOMBRE" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="VDESCRIPCION" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="EstadoCita_Cita" Member="Cita" ThisKey="IIDESTADO" OtherKey="IIDESTADOCITA" Type="Cita" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HistorialCita" Member="HistorialCita">
+    <Type Name="HistorialCita">
+      <Column Name="IIDHISTORIALCITA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IIDCITA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDESTADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDUSUARIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DFECHA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="VOBSERVACION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Mascota" Member="Mascota">
+    <Type Name="Mascota">
+      <Column Name="IIDMASCOTA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IIDUSUARIOPROPIETARIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="IIDTIPOMASCOTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FECHANACIMIENTO" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ANCHO" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ALTURA" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="IIDSEXO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VOBSERVACION" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Mascota_Cita" Member="Cita" ThisKey="IIDMASCOTA" OtherKey="IIDMASCOTA" Type="Cita" />
+      <Association Name="Mascota_UsuarioMascota" Member="UsuarioMascota" ThisKey="IIDMASCOTA" OtherKey="IIDMASCOTA" Type="UsuarioMascota" />
+      <Association Name="Sexo_Mascota" Member="Sexo" ThisKey="IIDSEXO" OtherKey="IIDSEXO" Type="Sexo" IsForeignKey="true" />
+      <Association Name="TipoMascota_Mascota" Member="TipoMascota" ThisKey="IIDTIPOMASCOTA" OtherKey="IIDTIPOMASCOTA" Type="TipoMascota" IsForeignKey="true" />
+      <Association Name="Usuario_Mascota" Member="Usuario" ThisKey="IIDUSUARIOPROPIETARIO" OtherKey="IIDUSUARIO" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Medicamento" Member="Medicamento">
+    <Type Name="Medicamento">
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CONCENTRACION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PRECIO" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="STOCK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDMEDICAMENTO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Medicamento_CitaMedicamento" Member="CitaMedicamento" ThisKey="IIDMEDICAMENTO" OtherKey="IIDMEDICAMENTO" Type="CitaMedicamento" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pagina" Member="Pagina">
+    <Type Name="Pagina">
+      <Column Name="IIDPAGINA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MENSAJE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ACCION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CONTROLADOR" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Pagina_PaginaTipoUsuario" Member="PaginaTipoUsuario" ThisKey="IIDPAGINA" OtherKey="IIDPAGINA" Type="PaginaTipoUsuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PaginaTipoUsuario" Member="PaginaTipoUsuario">
+    <Type Name="PaginaTipoUsuario">
+      <Column Name="IIDPAGINATIPOUSUARIO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IIDPAGINA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDTIPOUSUARIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDVISTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Pagina_PaginaTipoUsuario" Member="Pagina" ThisKey="IIDPAGINA" OtherKey="IIDPAGINA" Type="Pagina" IsForeignKey="true" />
+      <Association Name="TipoUsuario_PaginaTipoUsuario" Member="TipoUsuario" ThisKey="IIDTIPOUSUARIO" OtherKey="IIDTIPOUSUARIO" Type="TipoUsuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Persona" Member="Persona">
+    <Type Name="Persona">
+      <Column Name="IIDPERSONA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="APPATERNO" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="APMATERNO" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="TELEFONO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CORREO" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FECHANACIMIENTO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BTIENEUSUARIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDSEXO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Persona_Usuario" Member="Usuario" ThisKey="IIDPERSONA" OtherKey="IIDPERSONA" Type="Usuario" />
+      <Association Name="Sexo_Persona" Member="Sexo" ThisKey="IIDSEXO" OtherKey="IIDSEXO" Type="Sexo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sede" Member="Sede">
+    <Type Name="Sede">
+      <Column Name="IIDSEDE" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VNOMBRE" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="VDIRECCION" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Sede_Cita" Member="Cita" ThisKey="IIDSEDE" OtherKey="IIDSEDE" Type="Cita" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sexo" Member="Sexo">
+    <Type Name="Sexo">
+      <Column Name="IIDSEXO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Sexo_Mascota" Member="Mascota" ThisKey="IIDSEXO" OtherKey="IIDSEXO" Type="Mascota" />
+      <Association Name="Sexo_Persona" Member="Persona" ThisKey="IIDSEXO" OtherKey="IIDSEXO" Type="Persona" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TipoMascota" Member="TipoMascota">
+    <Type Name="TipoMascota">
+      <Column Name="IIDTIPOMASCOTA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TipoMascota_Cita" Member="Cita" ThisKey="IIDTIPOMASCOTA" OtherKey="IIDTIPOMASCOTA" Type="Cita" />
+      <Association Name="TipoMascota_Mascota" Member="Mascota" ThisKey="IIDTIPOMASCOTA" OtherKey="IIDTIPOMASCOTA" Type="Mascota" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TipoUsuario" Member="TipoUsuario">
+    <Type Name="TipoUsuario">
+      <Column Name="IIDTIPOUSUARIO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TipoUsuario_PaginaTipoUsuario" Member="PaginaTipoUsuario" ThisKey="IIDTIPOUSUARIO" OtherKey="IIDTIPOUSUARIO" Type="PaginaTipoUsuario" />
+      <Association Name="TipoUsuario_Usuario" Member="Usuario" ThisKey="IIDTIPOUSUARIO" OtherKey="IIDTIPOUSUARIO" Type="Usuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuario">
+    <Type Name="Usuario">
+      <Column Name="IIDUSUARIO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBREUSUARIO" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CONTRA" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IIDPERSONA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDTIPOUSUARIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Usuario_Cita" Member="Cita" ThisKey="IIDUSUARIO" OtherKey="IIDDOCTORASIGNACITAUSUARIO" Type="Cita" />
+      <Association Name="Usuario_Cita1" Member="Cita1" ThisKey="IIDUSUARIO" OtherKey="IIDUSUARIO" Type="Cita" />
+      <Association Name="Usuario_Mascota" Member="Mascota" ThisKey="IIDUSUARIO" OtherKey="IIDUSUARIOPROPIETARIO" Type="Mascota" />
+      <Association Name="Usuario_UsuarioMascota" Member="UsuarioMascota" ThisKey="IIDUSUARIO" OtherKey="IIDUSUARIO" Type="UsuarioMascota" />
+      <Association Name="TipoUsuario_Usuario" Member="TipoUsuario" ThisKey="IIDTIPOUSUARIO" OtherKey="IIDTIPOUSUARIO" Type="TipoUsuario" IsForeignKey="true" />
+      <Association Name="Persona_Usuario" Member="Persona" ThisKey="IIDPERSONA" OtherKey="IIDPERSONA" Type="Persona" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UsuarioMascota" Member="UsuarioMascota">
+    <Type Name="UsuarioMascota">
+      <Column Name="IIDPERSONAMASCOTA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IIDUSUARIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDMASCOTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Mascota_UsuarioMascota" Member="Mascota" ThisKey="IIDMASCOTA" OtherKey="IIDMASCOTA" Type="Mascota" IsForeignKey="true" />
+      <Association Name="Usuario_UsuarioMascota" Member="Usuario" ThisKey="IIDUSUARIO" OtherKey="IIDUSUARIO" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

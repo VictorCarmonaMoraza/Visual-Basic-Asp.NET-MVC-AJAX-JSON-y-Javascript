@@ -1,0 +1,288 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ProyectoiVisualBasic
+</name>
+</assembly>
+<members>
+<member name="T:ProyectoiVisualBasic.My.Resources.mensajes">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:ProyectoiVisualBasic.My.Resources.mensajes.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:ProyectoiVisualBasic.My.Resources.mensajes.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="P:ProyectoiVisualBasic.My.Resources.mensajes._Error">
+<summary>
+  Busca una cadena traducida similar a Ocurrio un Error.
+</summary>
+</member>
+<member name="P:ProyectoiVisualBasic.My.Resources.mensajes.messaggeOK">
+<summary>
+  Busca una cadena traducida similar a Se guardo correctamente.
+</summary>
+</member>
+<member name="T:ProyectoiVisualBasic.EstadosCita">
+ <summary>
+ Constantes con los diferentes estados de una cita 
+ </summary>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.CitaController.listarMascotasPorTipo(System.Int32)">
+ <summary>
+ Devuelve el nombre de la mascota(Combo dependiente)
+ </summary>
+ <param name="idTipo">id de la mascota seleccionada</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.CitaController.Guardar(ProyectoiVisualBasic.Cita)">
+ <summary>
+ Metodo para guardar una cita
+ </summary>
+ <param name="modelCita">modelo con los datos de una cita</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.CitaController.listadoCita">
+ <summary>
+ metod para listar todas las citas por vista total o vista usuario
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.CitaController.llenarDoctor">
+ <summary>
+ Obtenemos los doctores 
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.CitaController.mostrarHistorialCita(System.Int32)">
+ <summary>
+ Muestra el historial de las citas
+ </summary>
+ <param name="idCita">id de la cita</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.LoginController.ingresarLogin(System.String,System.String)">
+ <summary>
+ 
+ </summary>
+ <param name="nombreUsuario">nombre del usuario</param>
+ <param name="password">contraseña del usuario</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.MascotaController.listarMascotas">
+ <summary>
+ Metodo para listar las mascotas
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.MascotaController.LoadComboTipoMascota">
+ <summary>
+ Obtenemos los datos para rellenar el combo de tipo de mascota
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.MascotaController.filtrarMascotaPorTipo(System.Int32)">
+ <summary>
+ Metodo para obtener listado segun el tipo de mascota elegido
+ </summary>
+ <param name="idTipoMascota"></param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.MascotaController.listarTipoMascotas">
+ <summary>
+ Lista los tipos de mascotas
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.MascotaController.listarComboSexo">
+ <summary>
+ Obtiene el id y el valor del campo sexo
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.MascotaController.reuperarInformacionMascota(System.Int32)">
+ <summary>
+ Recuperamos informacion de una mascota en particular
+ </summary>
+ <param name="idMascota">id d ela mascota a recuperar</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.MascotaController.GuardarMascota(ProyectoiVisualBasic.Mascota)">
+ <summary>
+ Metodo para guardar una mascota en base de datos
+ </summary>
+ <param name="modelMascota">modelo de mascota a guardar</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.MascotaController.eliminarMascota(System.Int32)">
+ <summary>
+ Metodo para eliminar una pagina
+ </summary>
+ <param name="idMascota">id de la mascota a eleiminar</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.MedicamentosController.listarMedicamentos">
+ <summary>
+ Metodo para obtener todo el listado de medicamentos que estan habilitados
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.MedicamentosController.eliminarMedicamento(System.Int32)">
+ <summary>
+ Elimina un medicamento por su id(Borrado lógico)
+ </summary>
+ <param name="id">id del medicamento</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.MedicamentosController.guardarMedicamento(ProyectoiVisualBasic.Medicamento)">
+ <summary>
+ Guarda o edita un medicamento en funcion de su id
+ </summary>
+ <param name="modelMedicamento">modelo de medicamento</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.MedicamentosController.recuperarInformacionMedicamento(System.Int32)">
+ <summary>
+ Recupera la informacion de un medicamento
+ </summary>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.PaginaController.listarPaginas">
+ <summary>
+ Metodo para obtener el listado de paginas
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.PaginaController.guardarPaginas(ProyectoiVisualBasic.Pagina)">
+ <summary>
+ Metodo para guardar una pagina
+ </summary>
+ <param name="modelPagina">modelo con todos los datos de una pagina</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.PaginaController.eliminarPagina(System.Int32)">
+ <summary>
+ Metodo para eliminar una pagina
+ </summary>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.PaginaController.recuperarInformacionPagina(System.Int32)">
+ <summary>
+ Obtiene la informacion de una pagina por su id
+ </summary>
+ <param name="id">id de la pagina a buscar</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.PaginaController.buscarPaginas(System.String)">
+ <summary>
+ Metodo para buscar paginas por contenido
+ </summary>
+ <param name="mensaje">mensaje el cual buscar</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.PersonasController.listaPersonas">
+ <summary>
+ Metodo que nos devuelve un listado de personas
+ </summary>
+ <returns>listado de personas</returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.PersonasController.listarComboSexo">
+ <summary>
+ Obtiene el id y el valor del campo sexo
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.PersonasController.filtrarPorGenero(System.Int32)">
+ <summary>
+ Metodo para filtrar por genero
+ </summary>
+ <param name="iidsexo">Id del sexo</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.PersonasController.recuperarInformacionPersona(System.Int32)">
+ <summary>
+ Metodo que nos devuleve la informacion dela persona buscada por su id
+ </summary>
+ <param name="idPersona">Id de la persona a buscar</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.PersonasController.eliminarPersona(System.Int32)">
+ <summary>
+ Metod para eliminar personas por su id, borrado logico
+ </summary>
+ <param name="idPersona">id de la persona a buscar</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.PersonasController.GuardarPersonas(ProyectoiVisualBasic.Persona)">
+ <summary>
+ Metodo para guardar el objeto persona en la base de datos
+ </summary>
+ <param name="modelPersona">modelo de persona</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.RegistrarUsuarioController.GuardarUsuarioPersona(ProyectoiVisualBasic.Persona,System.String,System.String)">
+ <summary>
+ Metodo para el registro de una persona
+ </summary>
+ <param name="modelPersona">Objeto persona</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.TipoUsuarioController.listarTipoUsuario">
+ <summary>
+ Devuelve un listado con todos los tipos de usuario que esten habilitados
+ </summary>
+ <returns>listad de usuarios</returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.TipoUsuarioController.filtrarTipoUsuario(System.String)">
+ <summary>
+ Metodo para filtrar por nombre 
+ </summary>
+ <param name="nombreTipoUsuario"></param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.TipoUsuarioController.insertarTipoUsuario(ProyectoiVisualBasic.TipoUsuario,System.String,System.String)">
+ <summary>
+ Metodo para la insercion de un tipo de usuario
+ </summary>
+ <param name="oTipoUsuario">modelo de tipo de usaurio</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.TipoUsuarioController.recuperarInformacionTipoUsuario(System.Int32)">
+ <summary>
+ recupera informacion de un tipo usuario por su id
+ </summary>
+ <param name="id">id a buscar</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.TipoUsuarioController.recuperarCheckMarcados(System.Int32)">
+ <summary>
+ Recuperamos todos los check marcados en un usuario
+ </summary>
+ <param name="id">id del tipo de usuario del cual vamos a recuperar los datos</param>
+ <returns></returns>
+</member>
+<member name="M:ProyectoiVisualBasic.Controllers.TipoUsuarioController.eliminar(System.Int32)">
+ <summary>
+ Metodo para elminar por su id
+ </summary>
+ <param name="id">id del tipo usuario a elminar</param>
+ <returns></returns>
+</member>
+<member name="T:ProyectoiVisualBasic.Cifrado">
+ <summary>
+ Clase para el cifrado de las contraseñas
+ </summary>
+</member>
+</members>
+</doc>
